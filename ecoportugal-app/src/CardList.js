@@ -1,15 +1,16 @@
 import React from "react";
 import CardApp from "./CardApp";
-import {CardDeck} from "react-bootstrap";
+import {CardColumns} from "react-bootstrap";
 
 const CardList = ({ waste_types }) => {
 
     return (
-        <CardDeck>
+        <CardColumns className="">
             {
                 waste_types.map((value, index) => {
                     return (
                         <CardApp
+                            className="col-6"
                             key={index}
                             id={waste_types[index].id}
                             name={waste_types[index].name}
@@ -17,7 +18,7 @@ const CardList = ({ waste_types }) => {
                     );
                 })
             }
-        </CardDeck>
+        </CardColumns>
     );
 }
 export default CardList;
