@@ -5,6 +5,12 @@ import NavBar from "../components/NavBar";
 import SearchBox from "../components/SearchBox";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "react-bootstrap";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 class App extends Component {
     constructor() {
@@ -26,14 +32,19 @@ class App extends Component {
         return (
             <Fragment>
                 <NavBar />
-                <h2>Vamos deixar Portugal mais limpo</h2>
-                <SearchBox searchChange={this.onSearchChange} />
-                <Container>
-                    <CardList waste_types={filteredWastes}/>
-                </Container>
+                <Switch>
+                    <Route path="/">
+                        <h2>Vamos deixar Portugal mais limpo</h2>
+                        <SearchBox searchChange={this.onSearchChange} />
+                        <Container>
+                            <CardList waste_types={filteredWastes}/>
+                        </Container>
+                    </Route>
+                </Switch>
             </Fragment>
         );
     }
+
 }
 
 export default App;
