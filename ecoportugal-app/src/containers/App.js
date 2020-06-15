@@ -1,8 +1,8 @@
 import React, {Fragment, Component} from "react";
-import {waste_types} from "./waste_types";
-import CardList from "./CardList";
-import NavBar from "./NavBar";
-import SearchBox from "./SearchBox";
+import {waste_types} from "../waste_types";
+import CardList from "../components/CardList";
+import NavBar from "../components/NavBar";
+import SearchBox from "../components/SearchBox";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "react-bootstrap";
 
