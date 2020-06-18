@@ -1,16 +1,21 @@
 import React, {Component, Fragment} from "react";
+import { waste_types } from "../data/waste_types";
+import CategoryCardList from "../components/CategoryCardList";
 
 class Home extends Component {
     constructor() {
         super();
+        this.state = {
+            waste_types: waste_types,
+            searchfield: '',
+        }
     }
 
     render() {
         return (
             <Fragment>
-                <h1>Home Page</h1>
-                <a href="/bananas">bananas</a><br/>
-                <a href="/sacos">sacos</a>
+                <h2 className="text-center text-white">Vamos deixar Portugal mais limpo</h2>
+                <CategoryCardList waste_types={this.state.waste_types}/>
             </Fragment>
         );
     }
