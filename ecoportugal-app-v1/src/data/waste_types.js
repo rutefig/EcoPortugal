@@ -2,16 +2,16 @@ export const waste_types = [
     {
         id: 1,
         name: 'Papel',
-        color: 'bg-primary',
+        color: '#084C61',
     },
     {
         id: 2,
         name: 'Plástico',
-        color: 'bg-warning',
+        color: '#FFC857',
     },
     {
         id: 3,
         name: 'Vidro',
-        color: 'bg-success',
+        color: '#2A8C3E',
     },
 ]
