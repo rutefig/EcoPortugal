@@ -14,4 +14,19 @@ export const waste_types = [
         name: 'Vidro',
         color: '#2A8C3E',
     },
+    {
+        id: 4,
+        name: 'Pilhas',
+        color: '#2A8C3E',
+    },
+    {
+        id: 5,
+        name: 'Lâmpadas',
+        color: '#2A8C3E',
+    },
+    {
+        id: 6,
+        name: 'Pequenos Electrodomésticos',
+        color: '#2A8C3E',
+    },
 ]

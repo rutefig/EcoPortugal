@@ -7,9 +7,9 @@ import {
     Switch,
     useParams
 } from "react-router-dom";
-import Home from "./containers/Home";
-import Category from "./containers/Category";
-import NavBar from "./components/NavBar";
+import Home from "./Home";
+import Category from "./Category";
+import NavBar from "../components/NavBar";
 
 class App extends Component {
     render() {
@@ -25,7 +25,7 @@ class App extends Component {
                             <Home />
                         </Route>
                     </Switch>
-                </Container>   
+                </Container>
             </Fragment>
         );
     }

@@ -15,7 +15,7 @@ const NavBar = () => {
                         <Nav.Link href="#">Reportar</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="#">Sugerir</Nav.Link>
+                        <Nav.Link href="#">Informações</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar.Collapse>
