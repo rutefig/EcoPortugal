@@ -12,14 +12,23 @@ const CategoryPage = () => {
   const [points, setPoints] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
-    fetch('https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/Amb_Reciclagem/FeatureServer/0/query?where=1%3D1&outFields=*&f=pgeojson')
-    .then(response => response.json())
-    .then(data => {
-      setPoints(data.features);
-      setIsLoading(false);
-    })
-    .catch(error => console.log(error))
+    // API DAS ECO ILHAS (dados.gov.pt)
+    if (selectedCategory == 'Papel' || selectedCategory == 'Plástico' || selectedCategory == 'Vidro') {
+      fetch('https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/Amb_Reciclagem/FeatureServer/0/query?where=1%3D1&outFields=*&f=pgeojson')
+      .then(response => response.json())
+      .then(data => {
+        setPoints(data.features);
+        setIsLoading(false);
+      })
+      .catch(error => console.log(error))
+    }
+    else {
+      // O QUE FAZER PARA O RESTO - não existem dados disponíveis
+    }
+
+    // FALTA AINDA dados para as dicas
   });
 
 
