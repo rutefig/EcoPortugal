@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from "react";
 import { waste_categories } from "../data/waste_categories";
 import CategoryCardList from "../components/CategoryCardList";
+import SearchBox from "../components/SearchBox";
 
 class HomePage extends Component {
   constructor() {
@@ -11,10 +12,19 @@ class HomePage extends Component {
     }
   }
 
+  onSearchChange = (event) => {
+    this.setState({ searchfield: event.target.value });
+  }
+
   render() {
+    const filteredCategories = this.state.waste_categories.filter(waste_categories => {
+      return waste_categories.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    });
     return (
       <Fragment>
-        <CategoryCardList waste_categories={this.state.waste_categories} />
+        <h1 className="title">Vamos deixar Portugal mais limpo</h1>
+        <SearchBox searchChange={this.onSearchChange} />
+        <CategoryCardList waste_categories={filteredCategories} />
       </Fragment>
     );
   }

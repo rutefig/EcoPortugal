@@ -1,5 +1,5 @@
 import React, {Fragment, Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {Container} from "react-bootstrap";
 import './App.css';
 import {
     Route,
@@ -8,12 +8,22 @@ import {
 } from "react-router-dom";
 import NavigationBar from "../components/NavigationBar";
 import HomePage from "./HomePage";
+import CategoryPage from "./CategoryPage";
 
 function App() {
   return (
     <Fragment>
       <NavigationBar />
-      <HomePage />
+      <Container fluid>
+        <Switch>
+          <Route path="/:selectedCategory">
+            <CategoryPage />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Container>
     </Fragment>
   );
 }
