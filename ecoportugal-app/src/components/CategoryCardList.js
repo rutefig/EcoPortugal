@@ -13,7 +13,6 @@ const CategoryCardList = ({ waste_categories }) => {
                             key={index}
                             id={waste_categories[index].id}
                             name={waste_categories[index].name}
-                            color={waste_categories[index].color}
                         />
                     );
                 })
