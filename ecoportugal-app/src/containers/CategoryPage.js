@@ -51,35 +51,43 @@ const CategoryPage = () => {
   }
 
   // It uses Browser API to get geolocation
+  // Ver o que se passa aqui
   function getMyLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         setMyLatitude(position.coords.latitude);
         setMyLongitude(position.coords.longitude);
+        console.log(myLatitude);
+        console.log(myLongitude);
       });
     }
   }
 
-  // Ver ciclos de vida melhor --- Penso que está a fazer demasiados pedidos à rede
+  const loadData = async () => {
+    const response = await fetch('https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/Amb_Reciclagem/FeatureServer/0/query?where=1%3D1&outFields=*&f=pgeojson');
+    const data = await response.json();
+    setPoints(data.features);
+    setIsLoading(false);
+    calculateDistances();
+  }
+
   useEffect(() => {
     getMyLocation();
+  });
+
+  // Ver ciclos de vida melhor --- Penso que está a fazer demasiados pedidos à rede
+  useEffect(() => {
+
     // API DAS ECO ILHAS (dados.gov.pt)
     if (selectedCategory == 'Papel' || selectedCategory == 'Plástico' || selectedCategory == 'Vidro') {
-      fetch('https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/Amb_Reciclagem/FeatureServer/0/query?where=1%3D1&outFields=*&f=pgeojson')
-      .then(response => response.json())
-      .then(data => {
-        setPoints(data.features);
-        setIsLoading(false);
-        calculateDistances();
-      })
-      .catch(error => console.log(error))
+      loadData();
     }
     else {
       // O QUE FAZER PARA O RESTO - não existem dados disponíveis
     }
 
     // FALTA AINDA dados para as dicas
-  });
+  }, []);
 
 
   return (
