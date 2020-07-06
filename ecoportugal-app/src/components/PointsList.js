@@ -3,6 +3,7 @@ import {Container, CardColumns, Button} from "react-bootstrap";
 import PointCard from "./PointCard";
 
 const PointsList = ({ recycling_points }) => {
+
   return (
     <Container className="cards-list">
       <h3>Pontos de Recolha</h3>
