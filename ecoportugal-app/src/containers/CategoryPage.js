@@ -38,22 +38,28 @@ const CategoryPage = () => {
   	}
   }
 
-  function calculateDistances() {
+  const calculateDistances = () => {
     let distances_array = [];
+    console.log('A CALCULAR DISTANCIAS');
     if (myLatitude != 0 && myLongitude !=0) {
       points.map((value, index) => {
         let pointLongitude = points[index].geometry.coordinates[0];
         let pointLatitude = points[index].geometry.coordinates[1];
         distances_array.push(distance(myLatitude, myLongitude, pointLatitude, pointLongitude, "K"));
       });
+      console.log(distances_array);
       setDistances(distances_array);
+      console.log(distances);
+    } else {
+      console.log('A GEOLOCALIZAÇÃO NÃO ESTÁ A FUNCIONAR');
     }
   }
 
   // It uses Browser API to get geolocation
   // Ver o que se passa aqui
-  function getMyLocation() {
+  const getMyLocation = () => {
     if (navigator.geolocation) {
+      // getCurrentPosition OR watchPosition
       navigator.geolocation.getCurrentPosition(function(position) {
         setMyLatitude(position.coords.latitude);
         setMyLongitude(position.coords.longitude);
@@ -67,20 +73,15 @@ const CategoryPage = () => {
     const response = await fetch('https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/Amb_Reciclagem/FeatureServer/0/query?where=1%3D1&outFields=*&f=pgeojson');
     const data = await response.json();
     setPoints(data.features);
-    setIsLoading(false);
-    calculateDistances();
   }
 
   useEffect(() => {
-    getMyLocation();
-  });
-
-  // Ver ciclos de vida melhor --- Penso que está a fazer demasiados pedidos à rede
-  useEffect(() => {
-
     // API DAS ECO ILHAS (dados.gov.pt)
     if (selectedCategory == 'Papel' || selectedCategory == 'Plástico' || selectedCategory == 'Vidro') {
       loadData();
+      getMyLocation();
+      setIsLoading(false);
+      calculateDistances();
     }
     else {
       // O QUE FAZER PARA O RESTO - não existem dados disponíveis
@@ -96,7 +97,7 @@ const CategoryPage = () => {
       <Container fluid>
         <Row>
           <Col>
-            <PointsList recycling_points={points} />
+            <PointsList recycling_points={points} distances={distances} />
           </Col>
           <Col>
             <TipsList />
