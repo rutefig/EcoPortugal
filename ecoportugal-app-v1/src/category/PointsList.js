@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CardColumns } from "react-bootstrap";
+import { Container, CardColumns, Button } from "react-bootstrap";
 import PointCard from "./PointCard";
 
 const PointsList = ({ location }) => {
@@ -61,24 +61,25 @@ const PointsList = ({ location }) => {
 
   return (
     <>
-      Latitude: {location.latitude} <br/>
-      Longitude: {location.longitude}
-
-      <CardColumns>
-        {
-          recyclePoints.map((value, index) => {
-            return (
-              <PointCard
-                key={index}
-                id={recyclePoints[index].id}
-                name={recyclePoints[index].properties.TPRS_DESC}
-                location={recyclePoints[index].properties.FRE_AB}
-                distance={distances[index]}
-              />
-            );
-          })
-        }
-      </CardColumns>
+      <Container className="cards-list">
+        <h3 className="list-title">Pontos de Recolha</h3>
+        <Button variant="primary">Adicionar</Button>
+        <CardColumns>
+          {
+            recyclePoints.map((value, index) => {
+              return (
+                <PointCard
+                  key={index}
+                  id={recyclePoints[index].id}
+                  name={recyclePoints[index].properties.TPRS_DESC}
+                  location={recyclePoints[index].properties.FRE_AB}
+                  distance={distances[index]}
+                />
+              );
+            })
+          }
+        </CardColumns>
+      </Container>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import PointsList from "./PointsList";
 
@@ -25,7 +26,15 @@ const CategoryPage = () => {
   return (
     <>
       <h1 className="title">{selectedCategory}</h1>
-      <PointsList location={location}/>
+      <Container fluid>
+        <Row>
+          <Col>
+            <PointsList location={location}/>
+          </Col>
+          <Col>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
