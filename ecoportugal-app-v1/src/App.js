@@ -9,6 +9,7 @@ import {
 import NavigationBar from "./common/NavigationBar";
 import HomePage from "./home/HomePage";
 import CategoryPage from "./category/CategoryPage";
+import RecyclePointPage from "./recyclepoint/RecyclePointPage";
 
 const App = () => {
   return(
@@ -16,6 +17,9 @@ const App = () => {
         <NavigationBar />
         <Container fluid>
             <Switch>
+              <Route path="/:selectedCategory/:selectedPoint">
+                <RecyclePointPage />
+              </Route>
               <Route path="/:selectedCategory">
                 <CategoryPage />
               </Route>

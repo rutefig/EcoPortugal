@@ -13,6 +13,7 @@ const CategoryCardList = ({ wasteCategories }) => {
                 key={index}
                 id={wasteCategories[index].id}
                 name={wasteCategories[index].name}
+                icon={wasteCategories[index].icon}
               />
           );
         })

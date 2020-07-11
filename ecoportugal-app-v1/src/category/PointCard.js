@@ -11,7 +11,7 @@ const PointCard = ({ id, name, location, distance }) => {
           Distância: {distance}
         </Card.Text>
         <Card.Link href="#">Reportar</Card.Link>
-        <Card.Link href="#">Direções</Card.Link>
+        <Card.Link href='Papel/SomePoint'>Direções</Card.Link>
       </Card.Body>
     </Card>
   );
