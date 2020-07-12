@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import MapContainer from "./MapContainer";
+import { Container, Row, Col } from "react-bootstrap";
 
 const RecyclePointPage = () => {
   let { selectedCategory, selectedPoint, coordinates } = useParams();
@@ -36,7 +37,21 @@ const RecyclePointPage = () => {
   return (
     <>
       <h1 className="title">{selectedPoint}</h1>
-      <MapContainer {...mapProps}/>
+      <Container fluid>
+        <Row>
+          <Col>
+            <MapContainer {...mapProps}/>
+          </Col>
+          <Col>
+            <h3>Neste ponto de recolha pode reciclar:</h3>
+            <ul>
+              <li>Papel</li>
+              <li>Plástico</li>
+              <li>Vidro</li>
+            </ul>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
