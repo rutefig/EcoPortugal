@@ -7,6 +7,19 @@
   text-align: center;
 }
 
+.searchbox-input {
+  border-style: none;
+  border-bottom-style: solid;
+  border-bottom-color: #BBBBBB;
+  text-align: center;
+  width: 50%;
+}
+
+.searchbox-input:focus {
+  width: 80%;
+  transition: width 0.4s ease-in-out;
+}
+
 .cards-list {
   border-style: solid;
 }
