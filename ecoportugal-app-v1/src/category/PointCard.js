@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 
-const PointCard = ({ id, name, location, distance }) => {
+const PointCard = ({ id, name, location, distance, coords }) => {
   return (
     <Card>
       <Card.Body>
@@ -11,7 +11,7 @@ const PointCard = ({ id, name, location, distance }) => {
           Distância: {distance}
         </Card.Text>
         <Card.Link href="#">Reportar</Card.Link>
-        <Card.Link href={`${document.URL}/${name}-${location}`}>Direções</Card.Link>
+        <Card.Link href={`${document.URL}/${name}-${location}/${coords}`}>Direções</Card.Link>
       </Card.Body>
     </Card>
   );

@@ -26,3 +26,9 @@
 
 .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.01); }
+
+#map {
+   width: 100%;
+   height: 400px;
+   background-color: grey;
+ }

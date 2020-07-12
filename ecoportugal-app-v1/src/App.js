@@ -17,7 +17,7 @@ const App = () => {
         <NavigationBar />
         <Container fluid>
             <Switch>
-              <Route path="/:selectedCategory/:selectedPoint">
+              <Route path="/:selectedCategory/:selectedPoint/:coordinates">
                 <RecyclePointPage />
               </Route>
               <Route path="/:selectedCategory">

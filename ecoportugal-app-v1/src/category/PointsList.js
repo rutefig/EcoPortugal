@@ -74,6 +74,7 @@ const PointsList = ({ location }) => {
                   name={recyclePoints[index].properties.TPRS_DESC}
                   location={recyclePoints[index].properties.FRE_AB}
                   distance={distances[index]}
+                  coords={recyclePoints[index].geometry.coordinates}
                 />
               );
             })
