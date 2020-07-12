@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import PointsList from "./PointsList";
+import TipsList from "./TipsList";
 
 const CategoryPage = () => {
   let { selectedCategory } = useParams();
@@ -32,6 +33,7 @@ const CategoryPage = () => {
             <PointsList location={location}/>
           </Col>
           <Col>
+            <TipsList />
           </Col>
         </Row>
       </Container>
