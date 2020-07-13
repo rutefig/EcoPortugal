@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, CardColumns, Button} from "react-bootstrap";
+import {Container, Row, Col, CardColumns, Button} from "react-bootstrap";
 import TipsCard from "./TipsCard";
 
 const TipsList = () => {
@@ -7,8 +7,7 @@ const TipsList = () => {
     <Container className="cards-list">
       <h3>Outras dicas</h3>
       <Button variant="primary">Adicionar</Button>
-      <CardColumns>
-        <TipsCard />
+      <CardColumns style={{columnCount: "1"}}>
         <TipsCard />
         <TipsCard />
       </CardColumns>
