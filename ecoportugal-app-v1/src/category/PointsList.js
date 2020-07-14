@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, CardColumns, Button } from "react-bootstrap";
+import { Container, CardColumns, Button, Modal } from "react-bootstrap";
 import PointCard from "./PointCard";
 
 const PointsList = ({ location }) => {
@@ -58,12 +58,17 @@ const PointsList = ({ location }) => {
     calculateDistances();
   }, [recyclePoints, location]);
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   return (
     <>
       <Container className="cards-list">
         <h3 className="list-title">Pontos de Recolha</h3>
-        <Button variant="primary" href="/addPoint">Adicionar</Button>
+        <Button variant="primary" onClick={handleShow}>Adicionar</Button>
         <CardColumns style={{columnCount: "1"}}>
           {
             recyclePoints.map((value, index) => {
@@ -81,6 +86,27 @@ const PointsList = ({ location }) => {
           }
         </CardColumns>
       </Container>
+
+      <Modal
+          show={show}
+          onHide={handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Adicionar Ponto de Recolha</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Conhece algum ponto de recolha que não esteja identificado?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Não
+            </Button>
+            <Button variant="primary" href="/addPointWithMap">Sim, e estou no local</Button>
+            <Button variant="primary" href="/addPointForm">Sim, e sei a morada</Button>
+          </Modal.Footer>
+        </Modal>
     </>
   );
 }
