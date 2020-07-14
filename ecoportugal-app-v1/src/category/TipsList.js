@@ -7,7 +7,7 @@ const TipsList = () => {
     <Container className="cards-list">
       <h3>Outras dicas</h3>
       <Button variant="primary">Adicionar</Button>
-      <CardColumns style={{columnCount: "1"}}>
+    <CardColumns style={{columnCount: "1"}}>
         <TipsCard />
         <TipsCard />
       </CardColumns>

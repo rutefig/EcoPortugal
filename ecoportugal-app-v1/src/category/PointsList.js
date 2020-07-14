@@ -63,7 +63,7 @@ const PointsList = ({ location }) => {
     <>
       <Container className="cards-list">
         <h3 className="list-title">Pontos de Recolha</h3>
-        <Button variant="primary">Adicionar</Button>
+        <Button variant="primary" href="/addPoint">Adicionar</Button>
         <CardColumns style={{columnCount: "1"}}>
           {
             recyclePoints.map((value, index) => {

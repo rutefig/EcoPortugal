@@ -10,6 +10,7 @@ import NavigationBar from "./common/NavigationBar";
 import HomePage from "./home/HomePage";
 import CategoryPage from "./category/CategoryPage";
 import RecyclePointPage from "./recyclepoint/RecyclePointPage";
+import AddRecyclePoint from "./recyclepoint/AddRecyclePoint";
 
 const App = () => {
   return(
@@ -17,6 +18,9 @@ const App = () => {
         <NavigationBar />
         <Container fluid>
             <Switch>
+              <Route path="/addPoint">
+                <AddRecyclePoint />
+              </Route>
               <Route path="/:selectedCategory/:selectedPoint/:coordinates">
                 <RecyclePointPage />
               </Route>
