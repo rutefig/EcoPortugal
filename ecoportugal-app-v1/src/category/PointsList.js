@@ -51,6 +51,13 @@ const PointsList = ({ location }) => {
   }
 
   useEffect(() => {
+    distances.map((v, i) => {
+      setRecyclePoints([...recyclePoints, recyclePoints[i] = {...recyclePoints[i], distance: distances[i]}]);
+    });
+
+  }, [distances])
+
+  useEffect(() => {
     loadPointsAPI();
   }, []);
 
@@ -78,7 +85,7 @@ const PointsList = ({ location }) => {
                   id={recyclePoints[index].id}
                   name={recyclePoints[index].properties.TPRS_DESC}
                   location={recyclePoints[index].properties.FRE_AB}
-                  distance={distances[index]}
+                  distance={recyclePoints[index].distance}
                   coords={recyclePoints[index].geometry.coordinates}
                 />
               );
