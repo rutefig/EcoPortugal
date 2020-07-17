@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { Form, Col, Row, Button } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { waste_types } from "../data/waste_types";
 
 const AddRecyclePoint = () => {
 
   const [wasteCategories, setWasteCategories] = useState(waste_types);
+
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
 
   return (
     <>
@@ -13,15 +17,15 @@ const AddRecyclePoint = () => {
       por favor coloque tudo o mais certo possível de forma a
       facilitar a nossa confirmação. Todos os campos são obrigatórios</p>
 
-    <Form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group controlId="formName">
-        <Form.Control type="text" placeholder="Nome" />
+        <Form.Control type="text" placeholder="Nome" name="name" ref={register}/>
         <Form.Text className="text-muted">
           * Required
         </Form.Text>
       </Form.Group>
       <Form.Group>
-        <Form.Control type="text" placeholder="Localidade" />
+        <Form.Control type="text" placeholder="Localidade" name="city" ref={register} />
         <Form.Text className="text-muted">
           * Required
         </Form.Text>
@@ -41,13 +45,13 @@ const AddRecyclePoint = () => {
       <Form.Group controlId="formAddress">
         <Row>
           <Col>
-            <Form.Control type="text" placeholder="Rua" />
+            <Form.Control type="text" placeholder="Rua" name="streetAdd" ref={register} />
             <Form.Text className="text-muted">
               * Required
             </Form.Text>
           </Col>
           <Col>
-            <Form.Control type="text" placeholder="Nº" />
+            <Form.Control type="text" placeholder="Nº" name="numberAdd" ref={register} />
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
@@ -55,14 +59,15 @@ const AddRecyclePoint = () => {
         </Row>
       </Form.Group>
       <Form.Group controlId="formWebsite">
-        <Form.Control type="url" placeholder="Website" />
+        <Form.Control type="text" placeholder="Website" name="website" ref={register} />
         <Form.Text className="text-muted">
           * Required
         </Form.Text>
       </Form.Group>
+      <Button variant="primary" type="submit">Confirmar</Button>
     </Form>
 
-    <Button variant="primary">Confirmar</Button> <br />
+     <br />
     <Button variant="secondary">Cancelar</Button>
     </>
   );
