@@ -54,7 +54,10 @@ const PointsList = ({ location }) => {
     distances.map((v, i) => {
       setRecyclePoints([...recyclePoints, recyclePoints[i] = {...recyclePoints[i], distance: distances[i]}]);
     });
-
+    // Ordena o array dos pontos de recolha por distância mais próxima
+    setRecyclePoints(recyclePoints.sort((a, b) => {
+      return a.distance - b.distance;
+    }));
   }, [distances])
 
   useEffect(() => {
