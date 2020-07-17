@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, CardColumns, Button, Modal } from "react-bootstrap";
 import PointCard from "./PointCard";
 
-const PointsList = ({ location }) => {
+const PointsList = ({ location, category }) => {
   const [recyclePoints, setRecyclePoints] = useState([]);
   const [distances, setDistances] = useState([]);
 
@@ -61,7 +61,9 @@ const PointsList = ({ location }) => {
   }, [distances])
 
   useEffect(() => {
-    loadPointsAPI();
+    if (category === 'Papel' || category === 'Vidro' || category === 'Plástico') {
+      loadPointsAPI();
+    }  
   }, []);
 
   useEffect(() => {

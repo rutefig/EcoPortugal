@@ -30,7 +30,7 @@ const CategoryPage = () => {
       <Container fluid>
         <Row>
           <Col>
-            <PointsList location={location}/>
+            <PointsList location={location} category={selectedCategory}/>
           </Col>
           <Col>
             <TipsList />

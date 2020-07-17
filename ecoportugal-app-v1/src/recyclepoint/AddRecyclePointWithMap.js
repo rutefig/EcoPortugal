@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Container, Row, Col, Form } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { waste_types } from "../data/waste_types";
 import MapContainer from "./MapContainer";
 
@@ -47,6 +48,9 @@ const AddRecyclePointWithMap = () => {
     onMountProps: point,
   }
 
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+
   return (
     <>
       <h1 className="title">Add Recycle Point With Location</h1>
@@ -59,15 +63,15 @@ const AddRecyclePointWithMap = () => {
             <p className="form-information">Por favor tenha atenção que estes dados serão confirmados,
             por favor coloque tudo o mais certo possível de forma a
             facilitar a nossa confirmação. Todos os campos são obrigatórios</p>
-          <Form>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formName">
-              <Form.Control type="text" placeholder="Nome" />
+              <Form.Control type="text" placeholder="Nome" name="name" ref={register}/>
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Form.Control type="text" placeholder="Localidade" />
+              <Form.Control type="text" placeholder="Localidade" name="city" ref={register}/>
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
@@ -83,9 +87,9 @@ const AddRecyclePointWithMap = () => {
                 </div>
               ))}
             </Form.Group>
-            <Button variant="secondary">Cancelar</Button>
-            <Button className="pull-right" type="submit">Confirmar</Button>
+            <Button type="submit">Confirmar</Button>
           </Form>
+          <Button variant="secondary">Cancelar</Button>
           </Col>
         </Row>
       </Container>
