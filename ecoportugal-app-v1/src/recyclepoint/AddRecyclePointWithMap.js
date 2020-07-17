@@ -37,7 +37,7 @@ const AddRecyclePointWithMap = () => {
 
   const point = {
     coords: { lat: location.latitude, lng: location.longitude },
-    title: '',
+    title: 'A Minha Localização',
     url: '',
   };
 
@@ -83,6 +83,8 @@ const AddRecyclePointWithMap = () => {
                 </div>
               ))}
             </Form.Group>
+            <Button variant="secondary">Cancelar</Button>
+            <Button className="pull-right" type="submit">Confirmar</Button>
           </Form>
           </Col>
         </Row>
