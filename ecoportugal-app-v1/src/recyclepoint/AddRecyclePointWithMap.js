@@ -3,8 +3,11 @@ import { Button, Container, Row, Col, Form, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { waste_types } from "../data/waste_types";
 import MapContainer from "./MapContainer";
+import { useParams } from "react-router-dom";
 
 const AddRecyclePointWithMap = () => {
+
+  const { selectedCategory } = useParams();
 
   const [wasteCategories, setWasteCategories] = useState(waste_types);
 
@@ -48,7 +51,7 @@ const AddRecyclePointWithMap = () => {
     onMountProps: point,
   }
 
-  const { register, handleSubmit } = useForm();
+  const { register, errors, handleSubmit } = useForm();
   const onSubmit = data => {
     // Save data
     handleShow();
@@ -73,12 +76,18 @@ const AddRecyclePointWithMap = () => {
             facilitar a nossa confirmação. Todos os campos são obrigatórios</p>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formName">
+              <Form.Text className="text-danger">
+                {errors?.name && "Este campo é obrigatório"}
+              </Form.Text>
               <Form.Control type="text" placeholder="Nome" name="name" ref={register({required: true})}/>
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
             </Form.Group>
             <Form.Group>
+              <Form.Text className="text-danger">
+                {errors?.city && "Este campo é obrigatório"}
+              </Form.Text>
               <Form.Control type="text" placeholder="Localidade" name="city" ref={register({required: true})}/>
               <Form.Text className="text-muted">
                 * Required
@@ -99,7 +108,7 @@ const AddRecyclePointWithMap = () => {
             </Form.Group>
             <Button className="float-right" type="submit">Confirmar</Button>
           </Form>
-          <Button variant="secondary">Cancelar</Button>
+          <Button variant="secondary" href={`/${selectedCategory}`}>Cancelar</Button>
           </Col>
         </Row>
       </Container>

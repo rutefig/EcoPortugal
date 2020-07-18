@@ -117,8 +117,8 @@ const PointsList = ({ location, category }) => {
             <Button variant="secondary" onClick={handleClose}>
               Não
             </Button>
-            <Button variant="primary" href="/addPointWithMap">Sim, e estou no local</Button>
-            <Button variant="primary" href="/addPointForm">Sim, e sei a morada</Button>
+            <Button variant="primary" href={`/${category}/addPointWithMap`}>Sim, e estou no local</Button>
+            <Button variant="primary" href={`/${category}/addPointForm`}>Sim, e sei a morada</Button>
           </Modal.Footer>
         </Modal>
     </>

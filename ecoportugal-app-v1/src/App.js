@@ -20,10 +20,10 @@ const App = () => {
         <NavigationBar />
         <Container fluid>
             <Switch>
-              <Route path="/addPointWithMap">
+              <Route path="/:selectedCategory/addPointWithMap">
                 <AddRecyclePointWithMap />
               </Route>
-              <Route path="/addPointForm">
+              <Route path="/:selectedCategory/addPointForm">
                 <AddRecyclePoint />
               </Route>
               <Route path="/:selectedCategory/:selectedPoint/:coordinates">

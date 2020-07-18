@@ -3,12 +3,14 @@ import { Form, Col, Row, Button, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { waste_types } from "../data/waste_types";
 import { Redirect } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const AddRecyclePoint = () => {
 
+  const { selectedCategory } = useParams();
   const [wasteCategories, setWasteCategories] = useState(waste_types);
 
-  const { register, handleSubmit } = useForm();
+  const { register, errors, handleSubmit } = useForm();
   const onSubmit = data => {
     // Save data
     handleShow();
@@ -28,16 +30,22 @@ const AddRecyclePoint = () => {
       <h1 className="title">Adicionar Ponto de Recolha com Morada</h1>
       <p className="form-information">Por favor tenha atenção que estes dados serão confirmados,
       por favor coloque tudo o mais certo possível de forma a
-      facilitar a nossa confirmação. Todos os campos são obrigatórios</p>
+      facilitar a nossa confirmação.</p>
 
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group controlId="formName">
+        <Form.Text className="text-danger">
+          {errors?.name && "Este campo é obrigatório"}
+        </Form.Text>
         <Form.Control type="text" placeholder="Nome" name="name" ref={register({required: true})}/>
         <Form.Text className="text-muted">
           * Required
         </Form.Text>
       </Form.Group>
       <Form.Group>
+        <Form.Text className="text-danger">
+          {errors?.city && "Este campo é obrigatório"}
+        </Form.Text>
         <Form.Control type="text" placeholder="Localidade" name="city" ref={register({required: true})} />
         <Form.Text className="text-muted">
           * Required
@@ -60,12 +68,18 @@ const AddRecyclePoint = () => {
       <Form.Group controlId="formAddress">
         <Row>
           <Col>
+            <Form.Text className="text-danger">
+              {errors?.streetAdd && "Este campo é obrigatório"}
+            </Form.Text>
             <Form.Control type="text" placeholder="Rua" name="streetAdd" ref={register({required: true})} />
             <Form.Text className="text-muted">
               * Required
             </Form.Text>
           </Col>
           <Col>
+            <Form.Text className="text-danger">
+              {errors?.numberAdd && "Este campo é obrigatório"}
+            </Form.Text>
             <Form.Control type="text" placeholder="Nº" name="numberAdd" ref={register({required: true})} />
               <Form.Text className="text-muted">
                 * Required
@@ -74,12 +88,12 @@ const AddRecyclePoint = () => {
         </Row>
       </Form.Group>
       <Form.Group controlId="formWebsite">
-        <Form.Control type="text" placeholder="Website" name="website" ref={register({required: true})} />
+        <Form.Control type="text" placeholder="Website" name="website" ref={register({required: false})} />
       </Form.Group>
       <Button className="float-right" variant="primary" type="submit">Confirmar</Button>
     </Form>
      <br />
-    <Button variant="secondary">Cancelar</Button>
+    <Button variant="secondary" href={`/${selectedCategory}`}>Cancelar</Button>
 
     <Modal
       show={show}
