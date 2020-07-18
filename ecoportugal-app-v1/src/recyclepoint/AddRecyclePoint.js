@@ -11,11 +11,7 @@ const AddRecyclePoint = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     // Save data
-    if(data.name === "" || data.city === "" || data.streetAdd === "" || data.numberAdd === "") {
-
-    } else {
-        handleShow();
-    }
+    handleShow();
   }
 
   const [show, setShow] = useState(false);
@@ -36,24 +32,26 @@ const AddRecyclePoint = () => {
 
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group controlId="formName">
-        <Form.Control type="text" placeholder="Nome" name="name" ref={register}/>
+        <Form.Control type="text" placeholder="Nome" name="name" ref={register({required: true})}/>
         <Form.Text className="text-muted">
           * Required
         </Form.Text>
       </Form.Group>
       <Form.Group>
-        <Form.Control type="text" placeholder="Localidade" name="city" ref={register} />
+        <Form.Control type="text" placeholder="Localidade" name="city" ref={register({required: true})} />
         <Form.Text className="text-muted">
           * Required
         </Form.Text>
       </Form.Group>
-      <Form.Group controlId="formCategories" name="categories" ref={register}>
+      <Form.Group controlId="formCategories" name="categories" ref={register({required: true})}>
         {wasteCategories.map((value) => (
           <div key={value.name} className="mb-3">
             <Form.Check
               type='checkbox'
               id={`checkbox-${value.name}`}
               label={value.name}
+              name={value.name}
+              ref={register}
             />
           </div>
         ))}
@@ -62,13 +60,13 @@ const AddRecyclePoint = () => {
       <Form.Group controlId="formAddress">
         <Row>
           <Col>
-            <Form.Control type="text" placeholder="Rua" name="streetAdd" ref={register} />
+            <Form.Control type="text" placeholder="Rua" name="streetAdd" ref={register({required: true})} />
             <Form.Text className="text-muted">
               * Required
             </Form.Text>
           </Col>
           <Col>
-            <Form.Control type="text" placeholder="Nº" name="numberAdd" ref={register} />
+            <Form.Control type="text" placeholder="Nº" name="numberAdd" ref={register({required: true})} />
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
@@ -76,9 +74,9 @@ const AddRecyclePoint = () => {
         </Row>
       </Form.Group>
       <Form.Group controlId="formWebsite">
-        <Form.Control type="text" placeholder="Website" name="website" ref={register} />
+        <Form.Control type="text" placeholder="Website" name="website" ref={register({required: true})} />
       </Form.Group>
-      <Button variant="primary" type="submit">Confirmar</Button>
+      <Button className="float-right" variant="primary" type="submit">Confirmar</Button>
     </Form>
      <br />
     <Button variant="secondary">Cancelar</Button>

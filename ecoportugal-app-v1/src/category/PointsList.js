@@ -79,8 +79,10 @@ const PointsList = ({ location, category }) => {
   return (
     <>
       <Container className="cards-list">
-        <h3 className="list-title">Pontos de Recolha</h3>
-        <Button variant="primary" onClick={handleShow}>Adicionar</Button>
+        <div className="clearfix p-2">
+          <h3 className="list-title float-left">Pontos de Recolha</h3>
+          <Button className="float-right" variant="primary" onClick={handleShow}>Adicionar</Button>
+        </div>
         <CardColumns style={{columnCount: "1"}}>
           {
             recyclePoints.slice(0, 10).map((value, index) => {

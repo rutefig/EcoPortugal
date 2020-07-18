@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container, Row, Col, Form } from "react-bootstrap";
+import { Button, Container, Row, Col, Form, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { waste_types } from "../data/waste_types";
 import MapContainer from "./MapContainer";
@@ -49,11 +49,19 @@ const AddRecyclePointWithMap = () => {
   }
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => {
+    // Save data
+    handleShow();
+  }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <>
-      <h1 className="title">Add Recycle Point With Location</h1>
+      <h1 className="title">Adicionar Ponto de Recolha</h1>
       <Container fluid>
         <Row>
           <Col>
@@ -65,13 +73,13 @@ const AddRecyclePointWithMap = () => {
             facilitar a nossa confirmação. Todos os campos são obrigatórios</p>
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group controlId="formName">
-              <Form.Control type="text" placeholder="Nome" name="name" ref={register}/>
+              <Form.Control type="text" placeholder="Nome" name="name" ref={register({required: true})}/>
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
             </Form.Group>
             <Form.Group>
-              <Form.Control type="text" placeholder="Localidade" name="city" ref={register}/>
+              <Form.Control type="text" placeholder="Localidade" name="city" ref={register({required: true})}/>
               <Form.Text className="text-muted">
                 * Required
               </Form.Text>
@@ -83,16 +91,33 @@ const AddRecyclePointWithMap = () => {
                     type='checkbox'
                     id={`checkbox-${value.name}`}
                     label={value.name}
+                    name={value.name}
+                    ref={register}
                   />
                 </div>
               ))}
             </Form.Group>
-            <Button type="submit">Confirmar</Button>
+            <Button className="float-right" type="submit">Confirmar</Button>
           </Form>
           <Button variant="secondary">Cancelar</Button>
           </Col>
         </Row>
       </Container>
+
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+        >
+        <Modal.Header closeButton>
+          <Modal.Title>Ponto de Recolha Adicionado</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          O Ponto de Recolha que adicionou será adicionado assim que for confirmado pela nossa equipa.
+          Obrigada pela sua colaboração. Juntos fazemos Portugal um país mais verde!
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
