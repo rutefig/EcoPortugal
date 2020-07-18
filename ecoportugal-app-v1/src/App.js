@@ -7,6 +7,7 @@ import {
     Switch,
 } from "react-router-dom";
 import NavigationBar from "./common/NavigationBar";
+import Footer from "./common/Footer";
 import HomePage from "./home/HomePage";
 import CategoryPage from "./category/CategoryPage";
 import RecyclePointPage from "./recyclepoint/RecyclePointPage";
@@ -36,6 +37,7 @@ const App = () => {
               </Route>
             </Switch>
         </Container>
+        <Footer />
     </>
   );
 }

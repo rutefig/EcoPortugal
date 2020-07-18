@@ -41,3 +41,11 @@
      -moz-column-count: 1;
      column-count: 1;
  }
+
+ .footer {
+   position: fixed;
+   left: 0px;
+   bottom: 0px;
+   height: 50px;
+   width: 100%;
+ }
