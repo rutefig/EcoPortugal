@@ -63,7 +63,7 @@ const PointsList = ({ location, category }) => {
   useEffect(() => {
     if (category === 'Papel' || category === 'Vidro' || category === 'Plástico') {
       loadPointsAPI();
-    }  
+    }
   }, []);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const PointsList = ({ location, category }) => {
         <Button variant="primary" onClick={handleShow}>Adicionar</Button>
         <CardColumns style={{columnCount: "1"}}>
           {
-            recyclePoints.map((value, index) => {
+            recyclePoints.slice(0, 10).map((value, index) => {
               return (
                 <PointCard
                   key={index}
