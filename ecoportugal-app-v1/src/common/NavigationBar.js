@@ -4,7 +4,7 @@ import {Nav, Navbar} from "react-bootstrap";
 const NavigationBar = () => {
   return (
     <Navbar bg="light" variant="light">
-      <Navbar.Brand href="/">EcoPortugal</Navbar.Brand>
+      <Navbar.Brand href={process.env.PUBLIC_URL + "/"}>EcoPortugal</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Nav className="ml-auto">
         <Nav.Link href="#sugerir">Sugerir</Nav.Link>
