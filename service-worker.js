@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/EcoPortugal/precache-manifest.f4ed38c2540af4dbbcddeee4926d3ec5.js"
+  "/EcoPortugal/precache-manifest.d93066b1a28d40cea7cfe6c9c4fb5ae8.js"
 );
 
 self.addEventListener('message', (event) => {
