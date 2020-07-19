@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e5e310fa7ec6417fb8d07c61d5fc4ae7",
+    "revision": "3a27eb1bcb65a1488fdb50d8056557b3",
     "url": "/EcoPortugal/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/EcoPortugal/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "d940800440db59a4e72f",
+    "revision": "09be2aaf4eedbece603d",
     "url": "/EcoPortugal/static/css/main.a9186332.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/EcoPortugal/static/js/2.7e6fb9eb.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d940800440db59a4e72f",
-    "url": "/EcoPortugal/static/js/main.85f12721.chunk.js"
+    "revision": "09be2aaf4eedbece603d",
+    "url": "/EcoPortugal/static/js/main.f516f1e0.chunk.js"
   },
   {
     "revision": "4734504f73b1f5bd6284",
