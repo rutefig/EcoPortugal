@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/EcoPortugal/static/css/main.a9186332.chunk.css",
-    "main.js": "/EcoPortugal/static/js/main.a9be3a71.chunk.js",
-    "main.js.map": "/EcoPortugal/static/js/main.a9be3a71.chunk.js.map",
+    "main.js": "/EcoPortugal/static/js/main.91997235.chunk.js",
+    "main.js.map": "/EcoPortugal/static/js/main.91997235.chunk.js.map",
     "runtime-main.js": "/EcoPortugal/static/js/runtime-main.47639c8c.js",
     "runtime-main.js.map": "/EcoPortugal/static/js/runtime-main.47639c8c.js.map",
     "static/css/2.af3c1da9.chunk.css": "/EcoPortugal/static/css/2.af3c1da9.chunk.css",
     "static/js/2.7e6fb9eb.chunk.js": "/EcoPortugal/static/js/2.7e6fb9eb.chunk.js",
     "static/js/2.7e6fb9eb.chunk.js.map": "/EcoPortugal/static/js/2.7e6fb9eb.chunk.js.map",
     "index.html": "/EcoPortugal/index.html",
-    "precache-manifest.775d197be21ca27e00a0d4f0f56f2453.js": "/EcoPortugal/precache-manifest.775d197be21ca27e00a0d4f0f56f2453.js",
+    "precache-manifest.69477ad37bda996667d699152c3323dc.js": "/EcoPortugal/precache-manifest.69477ad37bda996667d699152c3323dc.js",
     "service-worker.js": "/EcoPortugal/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/EcoPortugal/static/css/2.af3c1da9.chunk.css.map",
     "static/css/main.a9186332.chunk.css.map": "/EcoPortugal/static/css/main.a9186332.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.af3c1da9.chunk.css",
     "static/js/2.7e6fb9eb.chunk.js",
     "static/css/main.a9186332.chunk.css",
-    "static/js/main.a9be3a71.chunk.js"
+    "static/js/main.91997235.chunk.js"
   ]
 }
