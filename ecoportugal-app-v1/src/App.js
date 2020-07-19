@@ -29,10 +29,10 @@ const App = () => {
               <Route path="/:selectedCategory/:selectedPoint/:coordinates">
                 <RecyclePointPage />
               </Route>
-              <Route path="/:selectedCategory">
+              <Route path="/EcoPortugal/:selectedCategory">
                 <CategoryPage />
               </Route>
-              <Route path="/">
+              <Route path="/EcoPortugal/">
                   <HomePage />
               </Route>
             </Switch>

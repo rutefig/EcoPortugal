@@ -1,6 +1,6 @@
 {
   "name": "ecoportugal-app-v1",
-  "homepage": "https://rutefig.github.io/EcoPortugal/",
+  "homepage": "https://rutefig.github.io/EcoPortugal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
