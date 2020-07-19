@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Tabs, Tab } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import PointsList from "./PointsList";
 import TipsList from "./TipsList";
@@ -27,7 +27,7 @@ const CategoryPage = () => {
   return (
     <>
       <h1 className="title">{selectedCategory}</h1>
-      <Container fluid>
+      <Container fluid className="device-big">
         <Row>
           <Col>
             <PointsList location={location} category={selectedCategory}/>
@@ -36,6 +36,17 @@ const CategoryPage = () => {
             <TipsList />
           </Col>
         </Row>
+      </Container>
+
+      <Container fluid className="device-small">
+        <Tabs defaultActiveKey="points">
+          <Tab eventKey="points" title="Pontos">
+            <PointsList location={location} category={selectedCategory}/>
+          </Tab>
+          <Tab eventKey="tips" title="Dicas">
+            <TipsList />
+          </Tab>
+        </Tabs>
       </Container>
     </>
   );

@@ -49,3 +49,21 @@
    height: 50px;
    width: 100%;
  }
+
+ @media (max-width: 767px) {
+   .device-big {
+     display: none;
+   }
+   .device-small {
+     display: block;
+   }
+ }
+
+ @media only screen and (min-width: 768px) {
+   .device-big {
+     display: block;
+   }
+   .device-small {
+     display: none;
+   }
+ }
