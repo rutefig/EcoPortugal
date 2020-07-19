@@ -8,7 +8,7 @@ const PointCard = ({ id, name, location, distance, coords }) => {
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle>{location}</Card.Subtitle>
         <Card.Text>
-          Distância: {distance}
+          Distância: {distance} km
         </Card.Text>
         <Card.Link href="#">Reportar</Card.Link>
         <Card.Link href={`${document.URL}/${name}-${location}/${coords}`}>Direções</Card.Link>

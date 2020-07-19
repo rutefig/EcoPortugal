@@ -25,6 +25,9 @@
 
 .cards-list {
   border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
+  border-color: #BBBBBB;
 }
 
 .grow { transition: all .2s ease-in-out; }

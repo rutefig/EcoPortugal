@@ -37,10 +37,10 @@ const RecyclePointPage = () => {
       <h1 className="title">{selectedPoint}</h1>
       <Container fluid>
         <Row>
-          <Col>
+          <Col md>
             <MapContainer {...mapProps}/>
           </Col>
-          <Col>
+          <Col md>
             <h3>Neste ponto de recolha pode reciclar:</h3>
             <ul>
               <li>Papel</li>

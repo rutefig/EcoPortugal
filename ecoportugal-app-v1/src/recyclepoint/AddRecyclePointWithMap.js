@@ -67,10 +67,10 @@ const AddRecyclePointWithMap = () => {
       <h1 className="title">Adicionar Ponto de Recolha</h1>
       <Container fluid>
         <Row>
-          <Col>
+          <Col md>
             <MapContainer {...mapProps} />
           </Col>
-          <Col>
+          <Col md>
             <p className="form-information">Por favor tenha atenção que estes dados serão confirmados,
             por favor coloque tudo o mais certo possível de forma a
             facilitar a nossa confirmação. Todos os campos são obrigatórios</p>
