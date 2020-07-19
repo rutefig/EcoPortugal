@@ -5,7 +5,7 @@ const CategoryCard = props => {
   const { id, name, icon } = props;
 
   return (
-    <a href={name}>
+    <a href={process.env.PUBLIC_URL + '/' + name}>
         <Card className={'shadow rounded p-3 mt-3 grow text-center'}>
             <Card.Img variant="top" className="icon" src={icon} style={{width:"150px"}}/>
             <Card.Body>
