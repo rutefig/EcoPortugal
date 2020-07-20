@@ -18,7 +18,7 @@ const App = () => {
   return(
     <>
         <NavigationBar />
-        <Container fluid>
+        <Container fluid className="content">
             <Switch>
               <Route path="/:selectedCategory/addPointWithMap">
                 <AddRecyclePointWithMap />

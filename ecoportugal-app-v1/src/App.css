@@ -45,13 +45,6 @@
      column-count: 1;
  }
 
- .footer {
-   position: fixed;
-   left: 0px;
-   bottom: 0px;
-   height: 50px;
-   width: 100%;
- }
 
  @media (max-width: 767px) {
    .device-big {
@@ -59,6 +52,12 @@
    }
    .device-small {
      display: block;
+   }
+   .footer {
+     position: sticky;
+     left: 0px;
+     bottom: 0px;
+     width: 100%;
    }
  }
 
@@ -68,5 +67,12 @@
    }
    .device-small {
      display: none;
+   }
+   .footer {
+     position: fixed;
+     left: 0px;
+     bottom: 0px;
+     height: 50px;
+     width: 100%;
    }
  }
