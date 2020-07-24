@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 export default function Map({ options, onMount, className, onMountProps }) {
   const ref = useRef();
   const [map, setMap] = useState();
@@ -6,9 +6,11 @@ export default function Map({ options, onMount, className, onMountProps }) {
   useEffect(() => {
     const onLoad = () => setMap(new window.google.maps.Map(ref.current, options))
     if (!window.google) {
+      console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
       const script = document.createElement(`script`)
       script.src =
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyCsFiLuvaPEogirLPRzA-kmsK9NLoQ8MJc'
+        `https://maps.googleapis.com/maps/api/js?key=` +
+        process.env.REACT_APP_GOOGLE_MAPS_API_KEY
       document.head.append(script)
       script.addEventListener(`load`, onLoad)
       return () => script.removeEventListener(`load`, onLoad)

@@ -12,7 +12,7 @@ const AddRecyclePoint = () => {
 
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = data => {
-    // Save data
+    console.log(data);
     handleShow();
   }
 
