@@ -46,7 +46,7 @@ const AddRecyclePointWithMap = () => {
   };
 
   const mapProps = {
-    options: { center: { lat: 38.7166700, lng: -9.1333300 }, zoom: 12 },
+    options: { center: { lat: location.latitude, lng: location.longitude }, zoom: 12 },
     onMount: addMarkers,
     onMountProps: point,
   }

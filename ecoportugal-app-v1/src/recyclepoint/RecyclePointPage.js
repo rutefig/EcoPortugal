@@ -19,10 +19,11 @@ const RecyclePointPage = () => {
       window.location.href = point.url
     })
   }
+  
 
   const point = {
     coords: { lat: parseFloat(coords[1]), lng: parseFloat(coords[0]) },
-    title: '',
+    title: 'Ponto de Recolha',
     url: '',
   };
 
