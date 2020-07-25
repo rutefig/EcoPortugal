@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-export default function Map({ options, onMount, className, onMountProps }) {
+import { functions, isEqual, omit } from 'lodash';
+
+function Map({ options, onMount, className, onMountProps }) {
   const ref = useRef();
   const [map, setMap] = useState();
 
   useEffect(() => {
-    const onLoad = () => setMap(new window.google.maps.Map(ref.current, options))
+    const onLoad = () => setMap(new window.google.maps.Map(ref.current, { ...options }))
     if (!window.google) {
-      console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
       const script = document.createElement(`script`)
       script.src =
         `https://maps.googleapis.com/maps/api/js?key=` +
@@ -25,6 +26,18 @@ export default function Map({ options, onMount, className, onMountProps }) {
     />
   )
 }
+
+function shouldNotUpdate(props, nextProps) {
+  const [funcs, nextFuncs] = [functions(props), functions(nextProps)]
+  const noPropChange = isEqual(omit(props, funcs), omit(nextProps, nextFuncs))
+  const noFuncChange =
+    funcs.length === nextFuncs.length &&
+    funcs.every(fn => props[fn].toString() === nextProps[fn].toString())
+  return noPropChange && noFuncChange
+}
+
+export default React.memo(Map, shouldNotUpdate);
+
 Map.defaultProps = {
   options: {
     center: { lat: 38.7166700, lng: -9.1333300 },

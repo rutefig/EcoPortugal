@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MapContainer from "./MapContainer";
 import { Container, Row, Col } from "react-bootstrap";
 
 const RecyclePointPage = () => {
+  const [location, setLocation] = useState({});
+
+  // Conteudo retirado do seguinte link: https://www.youtube.com/watch?v=6WB16wZS61c
+  useEffect(() => {
+    const watchId = navigator.geolocation.watchPosition(handlePositionReceived);
+
+    return () => navigator.geolocation.clearWatch(watchId);
+  }, []);
+
+  function handlePositionReceived({ coords }) {
+    const { latitude, longitude } = coords;
+
+    setLocation({ latitude, longitude });
+  }
+
   let { selectedCategory, selectedPoint, coordinates } = useParams();
   let coords = coordinates.split(",");
 
@@ -19,7 +34,7 @@ const RecyclePointPage = () => {
       window.location.href = point.url
     })
   }
-  
+
 
   const point = {
     coords: { lat: parseFloat(coords[1]), lng: parseFloat(coords[0]) },
@@ -30,7 +45,7 @@ const RecyclePointPage = () => {
   const mapProps = {
     options: { center: { lat: 38.7166700, lng: -9.1333300 }, zoom: 12 },
     onMount: addMarkers,
-    onMountProps: point,
+    onMountProps: point
   }
 
   return (
