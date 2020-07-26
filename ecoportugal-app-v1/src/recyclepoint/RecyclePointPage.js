@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const RecyclePointPage = () => {
   const [location, setLocation] = useState({});
+  const [mapProps, setMapProps] = useState({});
 
   // Conteudo retirado do seguinte link: https://www.youtube.com/watch?v=6WB16wZS61c
   useEffect(() => {
@@ -23,18 +24,20 @@ const RecyclePointPage = () => {
   let coords = coordinates.split(",");
 
   // https://janosh.dev/blog/google-maps+react-hooks
-  function addMarkers(map, point) {
-    const marker = new window.google.maps.Marker({
-      map,
-      position: point.coords,
-      label: point.title,
-      title: point.title,
-    })
-    marker.addListener(`click`, () => {
-      window.location.href = point.url
-    })
-  }
+  function addMarkers(map, points) {
+    points.forEach((point, index) => {
+      const marker = new window.google.maps.Marker({
+        map,
+        position: point.coords,
+        label: point.title,
+        title: point.title,
+      })
+      marker.addListener(`click`, () => {
+        window.location.href = point.url
+      })
+    });
 
+  }
 
   const point = {
     coords: { lat: parseFloat(coords[1]), lng: parseFloat(coords[0]) },
@@ -42,11 +45,21 @@ const RecyclePointPage = () => {
     url: '',
   };
 
-  const mapProps = {
-    options: { center: { lat: 38.7166700, lng: -9.1333300 }, zoom: 12 },
-    onMount: addMarkers,
-    onMountProps: point
-  }
+  useEffect(() => {
+    // atualizar as props do mapa
+    const locationMarker = {
+      coords: { lat: location.latitude, lng: location.longitude },
+      title: 'Minha Localização',
+      url: '',
+    }
+    setMapProps({
+      options: { center: { lat: 38.7166700, lng: -9.1333300 }, zoom: 12 },
+      onMount: addMarkers,
+      onMountProps: [locationMarker, point]
+    });
+  }, [location])
+
+
 
   return (
     <>
