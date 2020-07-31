@@ -24,7 +24,7 @@ const RecyclePointPage = () => {
   const point = {
     coords: { lat: parseFloat(coords[1]), lng: parseFloat(coords[0]) },
     title: 'Ponto de Recolha',
-    url: '',
+    url: `https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`,
   };
 
   const mapProps = {
