@@ -17,13 +17,14 @@ const RecyclePointPage = () => {
       title: point.title,
     })
     marker.addListener(`click`, () => {
-      window.location.href = point.url
+      //window.location.href = point.url
+      window.open(point.url);
     })
   }
 
   const point = {
     coords: { lat: parseFloat(coords[1]), lng: parseFloat(coords[0]) },
-    title: 'Ponto de Recolha',
+    title: selectedPoint,
     url: `https://www.google.com/maps/dir/?api=1&destination=${coords[1]},${coords[0]}`,
   };
 
