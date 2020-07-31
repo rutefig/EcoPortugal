@@ -8,7 +8,7 @@ const HomePage = () => {
   const [searchfield, setSearchfield] = useState('');
 
   const filteredCategories = wasteCategories.filter(wasteCategories => {
-    return wasteCategories.name.toLowerCase().includes(searchfield.toLowerCase());
+    return wasteCategories.keywords.toLowerCase().includes(searchfield.toLowerCase());
   });
 
   function onSearchChange(event) {
