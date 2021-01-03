@@ -13,6 +13,7 @@ import CategoryPage from "./category/CategoryPage";
 import RecyclePointPage from "./recyclepoint/RecyclePointPage";
 import AddRecyclePointWithMap from "./recyclepoint/AddRecyclePointWithMap";
 import AddRecyclePoint from "./recyclepoint/AddRecyclePoint";
+import SuggestionPage from "./suggestion/SuggestionPage";
 
 const App = () => {
   return(
@@ -20,6 +21,9 @@ const App = () => {
         <NavigationBar />
         <Container fluid className="content">
             <Switch>
+              <Route path="/sugerir">
+                <SuggestionPage />
+              </Route>
               <Route path="/:selectedCategory/addPointWithMap">
                 <AddRecyclePointWithMap />
               </Route>
